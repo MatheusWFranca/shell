@@ -1,16 +1,18 @@
 Set objExcel = CreateObject("Excel.Application")
-objExcel.Visible = False
+objExcel.Visible = True
 objExcel.DisplayAlerts = False
-Set objWorkbook = objExcel.Workbooks.Open("")
+Set objWorkbook = objExcel.Workbooks.Open("Endereco")
 
-For Each objQueryTable in objWorkbook.QueryTables
-    objQueryTable.Refresh
-Next
+WScript.Sleep 7000 
+
+objWorkbook.RefreshAll
 
 objWorkbook.Save
+
+WScript.Sleep 7000 
+
 objWorkbook.Close
 objExcel.Quit
 
-Set objQueryTable = Nothing
 Set objWorkbook = Nothing
 Set objExcel = Nothing
